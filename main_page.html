@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" 
+      type="image/x-icon"
+      href="static/favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/css/main_page.css">
+
+    <!-- Fontawesome CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+    </style>
+
+    <title>Function Search</title>
+</head>
+<body>
+    
+    <header>
+        <div class="d-flex flex-wrap justify-content-center">
+            <div class="mr-auto ml-2 font-weight-bold text-danger pt-2"><!--<span class="fa fa-exclamation-triangle pr-2"></span>Due to resource constraints we are currently searching from a codebase of 300,000 functions--></div>
+            <div class="pt-2"><a href="https://medium.com/@shashank.ramesh2396/semantic-code-search-using-transformers-and-bert-part-i-overview-and-data-preprocessing-fee34be134e1" class="fa fa-medium pr-4 text-dark"  style="font-size:1.4em"></a></div>
+            <div class="pt-2"><a href="https://www.youtube.com/" class="fa fa-youtube-play pr-4 text-danger" style="font-size:1.4em"></a></div>
+            <div class="pt-2 "><a href="https://github.com/" class="fa fa-github pr-4 text-dark" style="font-size:1.4em"></a></div>
+                         
+        </div>
+        <hr>  
+    </header>
+    
+    <div class="container">
+        <h1 class="text-center"><b>Function Search</b></h1>
+        
+        <form action="/results" method="GET">
+            <div class="row justify-content-center">
+                <div class="col-9">
+                    <div class="form-group has-search">
+                        <span class="fa fa-search form-control-feedback"></span>
+                        <input type="search" name="query" id="txt" autocomplete="off" class="form-control form-control-lg rounded-pill" placeholder="Type to search">
+                    </div>
+                </div>
+            </div>
+            
+            <button id="btn" class="d-flex btn btn-primary btn-lg mt-3 mx-auto" type="submit">Search</button> 
+
+            <div class="row" >
+                
+
+                    <div class="dropdown d-flex mx-auto mt-3">
+                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Search Queries to Try
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="{{ url_for('results_page', query='send http request') }}" >send http request</a>
+                            <a class="dropdown-item" href="{{ url_for('results_page', query='gradient descent') }}" >gradient descent</a>
+                            <a class="dropdown-item" href="{{ url_for('results_page', query='check if process is alive') }}" >check if process is alive</a>
+                            <a class="dropdown-item" href="{{ url_for('results_page', query='read csv file') }}" >read csv file</a>
+                            <a class="dropdown-item" href="{{ url_for('results_page', query='insert into database') }}" >insert into database</a>
+                            <a class="dropdown-item" href="{{ url_for('results_page', query='kill a process') }}" >kill a process</a>
+                        </div>
+                    </div> 
+            </div>
+            
+        </form>    
+    </div>
+
+    <footer class="text-center font-weight-bold">
+        <hr>
+        <p>Made with <span class="fa fa-heart"></span> by Shashank Ramesh</p>
+    </footer>
+
+</body>
+</html>

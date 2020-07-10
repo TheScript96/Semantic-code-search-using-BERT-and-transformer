@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="static/favicon.ico"/>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/css/results_page.css">
+
+    <!-- Fontawesome CDN -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+    </style>
+
+    <title>Function Search</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center display-4">Function Search</h1>
+
+        <form action="/results" method="GET">
+            <div class="row justify-content-center mb-4">
+                <div class="col-8">
+                    <div class="input-group border rounded-pill">
+                        <input type="search" autocomplete="off" name="query" id="search_result" value="{{data}}" class="form-control border-0 shadow-none rounded-pill"></input>
+                        <span class="input-group-btn">
+                            <button type="submit" role="button" class="btn btn-link text-primary border-left shadow-none"><i class="fa fa-search"></i></button>
+                        </span>
+                    </div>
+                </div>
+            </div> 
+        </form>
+
+    </div>
+
+    <div>
+        <hr>
+    </div>
+
+    <div class="container">
+        {% block content %}
+            {% if result == 0 %}
+            <h2 class="display-4 text-center">NO RESULTS FOUND</h2>
+            {% else %}
+                {% for i in range(result) %}
+                    <div class="card bg-dark text-white my-4" id="content">
+                        <div class="card-header"><a href="{{ git[i] }}" class="text-info"> {{ git[i] }}</a></div>
+                        <div class="card-body">
+                        <p class="card-text" >
+                            <pre><code id="code" class="text-white">{{ codes[i] }}</code></pre>
+                        </p>
+                        </div>
+                        <div class="card-footer text-muted"> Cosine Distance - {{ dist[i] }} </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endblock content %}
+    </div>
+
+    <footer class="text-center font-weight-bold">
+        <hr>
+        <p>Made with <span class="fa fa-heart"></span> by Shashank Ramesh</p>
+    </footer>
+    
+</body>
+</html>

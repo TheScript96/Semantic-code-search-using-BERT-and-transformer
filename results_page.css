@@ -1,0 +1,31 @@
+body{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+h1{
+    margin-top: 1rem;
+    font-family: 'Josefin Sans', sans-serif;   
+    background-image: linear-gradient(to right,red,rgb(255, 136, 0) ,rgb(165, 11, 165),blue,green);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+.form-control:focus, .input-group:hover {
+    border-color: #c4c3c300;
+    box-shadow: 0px 1px 1px rgba(196, 195, 195,0.075) inset, 0px 0px 8px rgba(196, 195, 195,0.5);
+}
+#content{
+    box-shadow: 10px 20px 20px rgba(0,0,0,0.8);
+}
+footer{
+    background-image: repeating-linear-gradient(90deg, blue 7%,red 12%,rgb(255, 136, 0) 12%,rgb(165, 11, 165) 15%,green 20%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-top: auto;
+}
+
+h2{
+    padding-top: 15%;
+}
