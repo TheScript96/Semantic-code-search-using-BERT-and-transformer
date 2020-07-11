@@ -1,4 +1,4 @@
-# Semantic-code-search-using-BERT-and-transformer
+# Semantic code search using BERT and Transformer
 Building a Semantic code search using BERT and transformer
 
 Please find links to the 3-part blog describing the above below <br>
